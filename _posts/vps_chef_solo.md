@@ -1,14 +1,14 @@
 ---
 title: "さくらVPSの初期設定をChef Soloでやってみた〜サードパーティcookbookの使い方〜"
 date: "2013-10-21"
-categories: 
+categories:
   - "chef"
-tags: 
+tags:
   - "chef"
   - "gem"
   - "sakura"
   - "vps"
-coverImage: "medium_7494123476.jpg"
+coverImage: "images/medium_7494123476.jpg"
 ---
 
 [Chef Soloの正しい始め方 | tsuchikazu blog](https://tsuchikazu.net/chef_solo_start/)がどういうわけかgoogleさんに好かれているので、続編を書きました。入門Chef Soloと正しい始め方を読んで、じゃあ実際に色々やってみようかな。とはいえ、チュートリアル的なことでなく、もうちょっと実践的なことをして理解を深めたい。このような人を対象に、さくらVPSの初期設定を題材に、Chef Soloを説明していきます。
@@ -68,7 +68,7 @@ $ berks init
 Successfully initialized
 ```
 
-ローカルの準備は整ったので、次にサーバ側の設定を行います。さくらVPSの初期状態ですと、Chefがインストールされておらず、Chef Soloが実行できる状態ではありません。`knife solo prepare`コマンドを使用してChefをサーバにインストールします。  
+ローカルの準備は整ったので、次にサーバ側の設定を行います。さくらVPSの初期状態ですと、Chefがインストールされておらず、Chef Soloが実行できる状態ではありません。`knife solo prepare`コマンドを使用してChefをサーバにインストールします。
 （VPSのIPが`133.242.191.168`という設定で進めます。自分の環境に合わせてIPを変更してください）
 
 ```
@@ -93,13 +93,13 @@ Generating node config 'nodes/133.242.191.168.json'...
 
 初期状態ではrootユーザーしか存在しないため、通常作業用に一般ユーザーを作成します。
 
-今回はサードパーティで用意されているcookbookを利用しながらChefの仕組みを理解していくために、積極的に採用していきます。やりたいこと + cookbook でググったり、[Opscode Community](http://community.opscode.com/)で検索すると、やりたいことが出来るcookbookが見つかるかと思います。  
+今回はサードパーティで用意されているcookbookを利用しながらChefの仕組みを理解していくために、積極的に採用していきます。やりたいこと + cookbook でググったり、[Opscode Community](http://community.opscode.com/)で検索すると、やりたいことが出来るcookbookが見つかるかと思います。
 今回ユーザの追加用のcookbookとして、[fnichol/chef-user · GitHub](https://github.com/fnichol/chef-user)を利用します。まずサードパーティのcookbookを使うには、cookbookをダウンロードしてくる必要があります。そのためには`Berksfile`ファイルにダウンロードするcookbookを追加し、`berks install`コマンドを実行します。サードパーティのcookbookは`cookbooks`ディレクトリに置いておく慣習があるため`--path`オプションで`cookbooks`を指定しておきましょう。
 
 ```
 $ vim Berksfile
 site :opscode
-# この一行を追加 
+# この一行を追加
 cookbook 'user'
 
 $ berks install --path cookbooks
@@ -117,7 +117,7 @@ Using user
 [README](https://github.com/fnichol/chef-user)を読むと、`user_account`というLWRPが使うことが出来ることがわかります。標準の`user`Resourceとの違いは、SSHの公開鍵を`authorized_keys`に置けるところです。それでは`user_account`を呼び出すためのcookbookを作って、recipeを編集していきます。
 
 ```
-$  knife cookbook create site_user -o site-cookbooks/ 
+$  knife cookbook create site_user -o site-cookbooks/
 ** Creating cookbook site_user
 ** Creating README for cookbook: site_user
 ** Creating CHANGELOG for cookbook: site_user
@@ -141,7 +141,7 @@ end
 $ vim nodes/133.242.191.168.json
 {
   "run_list":[
-    "recipe[user]",  
+    "recipe[user]",
     "recipe[site_user]"
   ]
 }
@@ -167,13 +167,13 @@ Using sudo (2.0.4)
 $ vim nodes/133.242.191.168.json
 {
   "run_list":[
-    "recipe[user]",  
-    "recipe[site_user]",  
+    "recipe[user]",
+    "recipe[site_user]",
     "recipe[sudo]"
-  ],   
+  ],
   "authorization": {
     "sudo": {
-      "users": ["tsuchikazu"],   
+      "users": ["tsuchikazu"],
       "passwordless": "true"
     }
   }
@@ -194,7 +194,7 @@ $ ssh tsuchikazu@133.242.191.168
 
 ## SSHの設定、iptablesの設定
 
-先ほどのユーザ作成でサードパーティの使い方は説明したので、復習のために設定を進めます。  
+先ほどのユーザ作成でサードパーティの使い方は説明したので、復習のために設定を進めます。
 まずはSSHの設定ということで、以下の設定をします。
 
 - rootログインの禁止
@@ -217,18 +217,18 @@ $ vim nodes/133.242.191.168.json
   "run_list":[
     ....(省略)
     "recipe[openssh]"
-  ],   
+  ],
   ....(省略)
   "openssh": {
     "server": {
-      "permit_root_login":"no", 
+      "permit_root_login":"no",
       "password_authentication":"no"
     }
   }
 }
 ```
 
-これでSSHの設定は完了です。  
+これでSSHの設定は完了です。
 次にiptablesの設定ということで、以下の設定をします。
 
 - SSH 22番とHTTP 80番とHTTPS 443番のポートを開ける
@@ -287,9 +287,9 @@ $ vim nodes/133.242.191.168.json
 {
   "run_list":[
     ....(省略)
-    "recipe[simple_iptables]", 
-    "recipe[site_simple_iptables]" 
-  ],   
+    "recipe[simple_iptables]",
+    "recipe[site_simple_iptables]"
+  ],
   ....(省略)
 ```
 
@@ -303,5 +303,5 @@ $ knife solo cook tsuchikazu@133.242.191.168
 
 これで簡単なサードパーティのcookbookを利用できるようになったはずです。サードパーティのcookbookを利用する際のコツは、とにかくREADMEを読んでやってみて、エラーになったらcookbookを読む。しかないかなと。READMEもcookbookによっては、適当で不親切なものがありますので、直接ソースを読むかサードパーティを使わないという手を取るのもいいかと思います。ちなみに、自分はこうやって使っているというだけですので、間違い等あれば指摘していただきたいです。
 
-今回、サードパーティのcookbookを使って初期設定を進めました。なぜサードパーティを使ったかというと、[naoyaさんの入門書](http://www.amazon.co.jp/%E5%85%A5%E9%96%80Chef-Solo-Infrastructure-as-Code-ebook/dp/B00BSPH158)を皮切りにChef入門記事が量産されました。[Chef Soloの正しい始め方 | tsuchikazu blog](https://tsuchikazu.net/chef_solo_start/)これもその１つです。が、それらを読んでも、サンプルを実行するぐらいで私は自前でrecipeなどを書ける気に全くなりませんでした。そこで、次にやったのが今回紹介したサードパーティcookbookを使いまくる。ということです。今回紹介したものに加え、nginxやmysqlなど色々なcookbookを読みながら使いまくりました。すると自然とLWRPやAttribute、Recipeの書き方が少しずつわかってきた（気がした）のです。  
+今回、サードパーティのcookbookを使って初期設定を進めました。なぜサードパーティを使ったかというと、[naoyaさんの入門書](http://www.amazon.co.jp/%E5%85%A5%E9%96%80Chef-Solo-Infrastructure-as-Code-ebook/dp/B00BSPH158)を皮切りにChef入門記事が量産されました。[Chef Soloの正しい始め方 | tsuchikazu blog](https://tsuchikazu.net/chef_solo_start/)これもその１つです。が、それらを読んでも、サンプルを実行するぐらいで私は自前でrecipeなどを書ける気に全くなりませんでした。そこで、次にやったのが今回紹介したサードパーティcookbookを使いまくる。ということです。今回紹介したものに加え、nginxやmysqlなど色々なcookbookを読みながら使いまくりました。すると自然とLWRPやAttribute、Recipeの書き方が少しずつわかってきた（気がした）のです。
 ということで、入門の次のステップとしてサードパーティのcookbookの使い方を書きました。今回作成したChefリポジトリは[tsuchikazu/vps-start-chef-cookbooks](https://github.com/tsuchikazu/vps-start-chef-cookbooks)で公開していますので、参考になれば幸いです。

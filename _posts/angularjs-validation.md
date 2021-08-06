@@ -1,12 +1,12 @@
 ---
 title: "AngularJSでのバリデーションの基本"
 date: "2014-12-18"
-categories: 
+categories:
   - "フロントエンド"
-tags: 
+tags:
   - "angularjs"
   - "javascript"
-coverImage: "AngularJS-medium.png"
+coverImage: "images/AngularJS-medium.png"
 ---
 
 この記事は、[AngularJS Advent Calendar 2014 - Adventar](http://www.adventar.org/calendars/350) の19日目の記事となります。前日は、[@albatrosary](https://twitter.com/albatrosary)さんの[YEOMANにあるAngularJS関連ジェネレータをご紹介します - albatrosary's blog](http://albatrosary.hateblo.jp/entry/2014/12/18/184725)です。YEOMANのジェネレータしか使ってこなかったので、他のも触って違いを感じてみたいです。
@@ -35,7 +35,7 @@ coverImage: "AngularJS-medium.png"
 
 ### 準備(form要素とng-model)
 
-バリデーションするにはform要素で囲み、name属性を指定する必要があります。  
+バリデーションするにはform要素で囲み、name属性を指定する必要があります。
 form要素もdirectiveになっており、ng-formを指定しても構いません。
 
 ```
@@ -43,10 +43,10 @@ form要素もdirectiveになっており、ng-formを指定しても構いませ
 </form>
 ```
 
-novalidate属性も追加していますが、これはブラウザによるHTML5のバリデーションと、  
+novalidate属性も追加していますが、これはブラウザによるHTML5のバリデーションと、
 AngularJSのバリデーションが同時に実施されてしまうことを避けるために、ブラウザのバリデーションを無効にしています。
 
-バリデーションするinput要素も用意しましょう。name/ng-modelを指定する必要があります。  
+バリデーションするinput要素も用意しましょう。name/ng-modelを指定する必要があります。
 ng-modelはデータバインディングだけでなく、バリデーションするためにも必要です。
 
 ```
@@ -55,15 +55,15 @@ ng-modelはデータバインディングだけでなく、バリデーション
 
 ### バリデーションする
 
-AngularJSのバリデーションは、基本的にinputなど入力要素に属性を追加していきます。  
-デフォルトでtextだとng-required(required), ng-pattern, ng-minlength, ng-maxlength等が使えます。  
+AngularJSのバリデーションは、基本的にinputなど入力要素に属性を追加していきます。
+デフォルトでtextだとng-required(required), ng-pattern, ng-minlength, ng-maxlength等が使えます。
 [AngularJS: API: input\[text\]](https://docs.angularjs.org/api/ng/input/input%5Btext%5D)
 
 ```
 <input type="email" name="email" ng-model="email" required ng-maxlength="20">
 ```
 
-必須チェックと最大文字数チェックを追加すると↑の様になります。  
+必須チェックと最大文字数チェックを追加すると↑の様になります。
 標準で用意されているバリデーション以外のチェックをしたい場合にも、基本的にチェック用のdirectiveを用意して属性に指定していきます。
 
 ## エラーの表示
@@ -93,14 +93,14 @@ AngularJSのバリデーションは、基本的にinputなど入力要素に属
 </div>
 ```
 
-さてここで、scopeに何もsetしていないのに、突然userForm.email.$errorを使うことが出来ています。  
-まず、userFormを使うことができるおは、form directiveにname属性を指定すると、form directiveのcontroller（FormController）が、current scopeに設定されるためです([AngularJS: API: form](https://docs.angularjs.org/api/ng/directive/form))  
-userForm.emailが突然使えるのも、同じような仕組みです。  
+さてここで、scopeに何もsetしていないのに、突然userForm.email.$errorを使うことが出来ています。
+まず、userFormを使うことができるおは、form directiveにname属性を指定すると、form directiveのcontroller（FormController）が、current scopeに設定されるためです([AngularJS: API: form](https://docs.angularjs.org/api/ng/directive/form))
+userForm.emailが突然使えるのも、同じような仕組みです。
 ng-model directiveを使うと、ng-model directiveのcontroller（NgModelController）が、親のformに設定されるのです。([AngularJS: API: ngModel](https://docs.angularjs.org/api/ng/directive/ngModel))
 
 ### エラー表示タイミング
 
-エラーは表示できましたが、まだ常にエラーメッセージが表示されている状態です。  
+エラーは表示できましたが、まだ常にエラーメッセージが表示されている状態です。
 例えば、フォーカスが外れたタイミングで、バリデーションしてエラーを表示するためには、どうすればいいでしょうか。
 
 AngularJSでは、バリデーションするタイミングを変えるのではなく、エラー表示のタイミングを変える考え方になります。入力項目がvalidかinvalidか（どのバリデーションでエラーになっているか）は、常に保持されているので、出したいタイミングで出してあげます。例えば、以下のようなタイミングで表示できます。

@@ -1,18 +1,18 @@
 ---
 title: "Shibuya.rb[:20130116]に行ってきた"
 date: "2013-01-20"
-categories: 
+categories:
   - "ruby"
-tags: 
+tags:
   - "ruby"
   - "shibuya-rb"
   - "行ってみた"
-coverImage: "medium_8230018092.jpg"
+coverImage: "images/medium_8230018092.jpg"
 ---
 
 [渋谷.rb\[:20130116\]](http://www.zusaar.com/event/489016)に参加して来ましたので、その自分的まとめです。
 
-先月の[Shibuya.rb 20121219に初めて行ってきた](https://tsuchikazu.net/shibuya_rb_20121219/)に続き、2回目の参加となります。  
+先月の[Shibuya.rb 20121219に初めて行ってきた](https://tsuchikazu.net/shibuya_rb_20121219/)に続き、2回目の参加となります。
 今回のShibuya.rbは、前回に比べて参加者が多く、キャンセル待ちの方々がたくさんいました。自分もキャンセル待ちだったんですが、運よく繰り上げになり参加することが出来ました。会場はヒカリエにあるロゴが変わったばかりのDeNAさんにお邪魔してきました。
 
 ### 自己紹介
@@ -33,7 +33,7 @@ capistranoで複数サーバにデプロイしたあとに、エラーとか出�
 
 今回はLTが１つのみで、ちょっと寂しい感じでした（前回は2時間ずっとLTでしたから）その後は、周りの人と話したり、隣の方とペアプロしたりして過ごしていました。
 
-[UT Startup Gym](http://ut-gym.jp/)に行っている人がいて、面白そうでしたね。現在は違う人が教えているそうですが、以前は[@amachang](https://twitter.com/amachang)さんや、[@yusukebe](https://twitter.com/yusukebe)さんが、Webサービスの企画から実装まで指導してくれる勉強会らしいです。  
+[UT Startup Gym](http://ut-gym.jp/)に行っている人がいて、面白そうでしたね。現在は違う人が教えているそうですが、以前は[@amachang](https://twitter.com/amachang)さんや、[@yusukebe](https://twitter.com/yusukebe)さんが、Webサービスの企画から実装まで指導してくれる勉強会らしいです。
 参加者は社会人と学生が半々ぐらいで、実装面では基本的なことから教えてもらえるそうです。で、ちゃんとマネタイズするっていうのを目標にしていて、いくつかリリースされていると。ちゃんとマネタイズ出来ていたらスゴイですね。実際のところを聞きそびれた。。
 
 今回は懇親会まで参加してみました。なんかRuby界は結構狭い気がしていて、発表の場やああいう場を通して顔を覚えてもらったり、知り合いが増えていくんだろうなー。

@@ -1,9 +1,9 @@
 ---
 title: "Nuxt.jsのPage ComponentのStorybook化"
 date: "2019-12-01"
-categories: 
+categories:
   - "フロントエンド"
-coverImage: "1_8vntpfJ8_FQ1XkeMVggasQ.png"
+coverImage: "images/1_8vntpfJ8_FQ1XkeMVggasQ.png"
 ---
 
 これは、[Nuxt.js Advent Calendar 2019](https://qiita.com/advent-calendar/2019/nuxt-js) 1日目の記事です。

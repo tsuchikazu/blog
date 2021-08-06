@@ -1,11 +1,11 @@
 ---
 title: "Swiftを学べるサンプルiPhoneアプリを集めてみた"
 date: "2014-07-26"
-categories: 
+categories:
   - "ios"
-tags: 
+tags:
   - "swift"
-coverImage: "swift1.jpg"
+coverImage: "images/swift1.jpg"
 ---
 
 今月のはじめにXCode6 beta3がリリースされ、それ以降お布施をしなくても、Swiftが試せるようになりました。今週もbeta4がリリースされ、日々進化していっているSwiftです。
@@ -16,19 +16,19 @@ coverImage: "swift1.jpg"
 
 ## Apple公式のサンプルコード
 
-まず最初に押さえておくべきものは、公式です。[Swift BlogのResources](https://developer.apple.com/swift/resources/)に今後も追記されるんじゃないかと思います。  
-まだ、OSXのものも混じっており、iOSのサンプルになりそうなのはUICatalogぐらいしか公開されていないようです。  
+まず最初に押さえておくべきものは、公式です。[Swift BlogのResources](https://developer.apple.com/swift/resources/)に今後も追記されるんじゃないかと思います。
+まだ、OSXのものも混じっており、iOSのサンプルになりそうなのはUICatalogぐらいしか公開されていないようです。
 同じものですが、[iOS Developer Library - Pre-Release](https://developer.apple.com/library/prerelease/ios/navigation/)からも「Sample Code」で検索すると探すことが出来ます。
 
 ## GitHubに公開されているアプリ
 
-すでにライブラリやらアプリやら、多くのRepositoryが公開されています。  
-今回は、[SwiftのStarが多い順](https://github.com/search?l=Swift&o=desc&q=swift&ref=searchresults&s=stars&type=Repositories)で検索して、サンプルアプリを探してみました。  
+すでにライブラリやらアプリやら、多くのRepositoryが公開されています。
+今回は、[SwiftのStarが多い順](https://github.com/search?l=Swift&o=desc&q=swift&ref=searchresults&s=stars&type=Repositories)で検索して、サンプルアプリを探してみました。
 (Star数は2014/07/26時点）
 
 ### [fullstackio/FlappySwift(★6,167)](https://github.com/fullstackio/FlappySwift)
 
-Swift発表後に話題になった、FlappyBirdのSwift版です。  
+Swift発表後に話題になった、FlappyBirdのSwift版です。
 SpriteKitを使って、ものすごくシンプルに実装されているように見えます。
 
 ![](https://camo.githubusercontent.com/867dfad61329bd77258f00d586b16476c7bc405a/687474703a2f2f692e696d6775722e636f6d2f314e4c6f546f552e676966)

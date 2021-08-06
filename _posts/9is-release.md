@@ -1,13 +1,13 @@
 ---
 title: "9isというサービスを開発した話"
 date: "2016-01-17"
-categories: 
+categories:
   - "life"
-tags: 
+tags:
   - "javascript"
   - "node"
   - "ruby-on-rails"
-coverImage: "9is2.png"
+coverImage: "images/9is2.png"
 ---
 
 去る1/9は一休さんにちなんで、クイズの日と呼ばれているようです。そんなクイズの日に[9is（クイズ） - みんなでもっとおもしろくできる](https://9is.party/)というサービスをリリースしました。これはペパボで毎年開催している、[お産合宿](http://osan.pepabo.com/?cid=10)という名の開発合宿で開発したものです。お産合宿後も、誰かがやる気が高まった時にイイ感じに進める。というゆるい感じで開発を進めていましたが、晴れて1/9に正式リリースということにしました。
@@ -55,7 +55,7 @@ coverImage: "9is2.png"
 
 今、Renderingサーバでは静的なファイル(HTML、JS、CSS等)を返すだけのexpressをherokuで動かしています。もはや完全に静的ファイル配信なので、[CloudFlare](https://www.cloudflare.com/)というCDNも使っています。CloudFlareのスゴイところが、なんと無料でSNIを利用したSSLまで提供してくれることです！！これによって、無料で独自ドメインのSSLが実現できました。
 
-配信されるフロントエンドでは、ES6(2016)で開発してBabel + browserifyでbuildしてます。Viewには[React](https://facebook.github.io/react/)、Fluxには[yahoo/fluxible](https://github.com/yahoo/fluxible)を使いました。(Server side renderingを諦めた今、fluxibleである必要が無いんですけど)  
+配信されるフロントエンドでは、ES6(2016)で開発してBabel + browserifyでbuildしてます。Viewには[React](https://facebook.github.io/react/)、Fluxには[yahoo/fluxible](https://github.com/yahoo/fluxible)を使いました。(Server side renderingを諦めた今、fluxibleである必要が無いんですけど)
 今回、始めてReactとFluxを触ったんですけど、ただ単に表示する系なら簡単でいいんですが、Form周りがどうすればいいのかわかりにくく苦労しました。今後、部分的にAngular2を試していきたいと思っています。
 
 #### APIサーバ

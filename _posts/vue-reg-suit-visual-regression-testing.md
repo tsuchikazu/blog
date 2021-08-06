@@ -6,7 +6,7 @@ categories:
 tags:
   - "javascript"
   - "vue"
-coverImage: "83f5b36bce9c350ea8e757f58b4aa830.png"
+coverImage: "images/83f5b36bce9c350ea8e757f58b4aa830.png"
 ---
 
 これは [Vue.js #3 Advent Calendar 2017 - Qiita](https://qiita.com/advent-calendar/2017/vue3) 1日目の記事です。

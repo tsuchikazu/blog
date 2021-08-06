@@ -1,13 +1,13 @@
 ---
 title: "WordPressでMarkdown + Syntaxハイライトするには"
 date: "2012-11-07"
-categories: 
+categories:
   - "wordpress"
-tags: 
+tags:
   - "markdown"
   - "markdown-on-save-improved"
   - "wordpress"
-coverImage: "medium_7702900836.jpg"
+coverImage: "images/medium_7702900836.jpg"
 ---
 
 みなさんはどのようなエディタでどのような記法で文章を書いていますか？最近、エンジニアの中で一番人気な記法はMarkdownではないでしょうか。GitHubでのwikiやREADMEの形式に採用されて火がつき、最近だとはてなブログもMarkdown記法に対応してくれました。
@@ -52,17 +52,17 @@ jQuery(function() {
     print "hello world" #スペース4つ or タブ
 
 1. [Prettify For WordPress](http://wordpress.org/extend/plugins/prettify-wordpress/)
-    
+
     独自で変なCSSを当ててるようで、大きくデザインが崩れました。 [![](images/c61dc5113c17db829648dbad5581cc78.jpg "Prettify For WordPress")](https://tsuchikazu.net/wp-content/uploads/2012/11/c61dc5113c17db829648dbad5581cc78.jpg)
-    
+
 2. [Prettify GC Syntax Highlighter](http://wordpress.org/extend/plugins/prettify-gc-syntax-highlighter/)
-    
+
     変なCSSが当たらず、うまくハイライトされています。 [![](images/4e15f4928bda209c96677acde9c52ec4.jpg "Prettify GC Syntax Highlighter")](https://tsuchikazu.net/wp-content/uploads/2012/11/4e15f4928bda209c96677acde9c52ec4.jpg)
-    
+
 3. [WP Code Prettify](http://wordpress.org/extend/plugins/wp-code-prettify/)
-    
+
     これは設定画面で、styleも選べてちょっと高機能です。 [![](images/2b1b8603d9d23f7c83fb8f9151cd882b.jpg "WP Code Prettify")](https://tsuchikazu.net/wp-content/uploads/2012/11/2b1b8603d9d23f7c83fb8f9151cd882b.jpg) 適用した感じはこんな感じ。 [![](images/3902e0f06973b4a4cb2f23965e7a1279.jpg "WP Code Prettify")](https://tsuchikazu.net/wp-content/uploads/2012/11/3902e0f06973b4a4cb2f23965e7a1279.jpg)
-    
+
 
 個人的には[WP Code Prettify](http://wordpress.org/extend/plugins/wp-code-prettify/)が気に入ったので、当分これを使っていきます。 今回探した限りだとgithub-flavored-markdownに対応したプラグインがなかったけど、やっぱり使いたいので気が向いたら作ろうかなー。
 

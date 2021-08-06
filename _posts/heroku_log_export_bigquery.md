@@ -1,10 +1,10 @@
 ---
 title: "HerokuのログをBigQueryへエクスポートする"
 date: "2020-06-22"
-categories: 
+categories:
   - "ruby"
   - "開発環境"
-coverImage: "heroku.jpg"
+coverImage: "images/heroku.jpg"
 ---
 
 Herokuのログはどんどん流れていってしまうため、どこかに保存しなくてはなりません。そのため、[Papertrail](https://elements.heroku.com/addons/papertrail)や[Coralogix Logging](https://elements.heroku.com/addons/coralogix)などのaddonを使って、外部サービスへlogを流して、そちらである程度の期間分、永続化するなり、検索して活用するなどしているかと思います。大量のアクセスがきて大量のログが流れるアプリケーションの場合、ログが大量になりプランアップにしなければならなくなり、addon料金も馬鹿にならない。ということになったりしないでしょうか？
@@ -48,10 +48,10 @@ log_name="projects/#{project_id}/logs/#{log_name}"
 360MB/dayほどのログを出力するアプリに対して、ざっくり見積もりしてみたところ、詳細は省きますが、以下のようになりました。
 
 - papertrailの場合
-    
+
     - $65/月
 - CloudLogging + BigQuery
-    
+
     - $8.5/月
 
 あくまで保存するだけ料金でもあるため、実際にQueryを実行すると追加で課金されたりするため、ざっくりの目安として載せておきます。

@@ -1,15 +1,15 @@
 ---
 title: "Macで作るRails環境構築手順"
 date: "2013-11-17"
-categories: 
+categories:
   - "開発環境"
-tags: 
+tags:
   - "gem"
   - "homebrew"
   - "mysql"
   - "ruby"
   - "ruby-on-rails"
-coverImage: "mac_rails.jpg"
+coverImage: "images/mac_rails.jpg"
 ---
 
 最近、非エンジニアのMacにRails環境を、ゼロから構築する機会がありましたので、手順を残しておきます。かなり王道な方法だと思いますので、これからMacで開発したいという人は参考になるかと思います。
@@ -189,7 +189,7 @@ Homebrew で MySQL をインストールします。
  $ unset TMPDIR
  $ mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
  $ # 起動時に MySQL を立ち上げる。
- $ ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents 
+ $ ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
  $ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 ```
 

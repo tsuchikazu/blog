@@ -1,23 +1,23 @@
 ---
 title: "Chef Soloの正しい始め方"
 date: "2013-03-21"
-categories: 
+categories:
   - "chef"
-tags: 
+tags:
   - "chef"
   - "ec2"
   - "gem"
-coverImage: "medium_271870440.jpg"
+coverImage: "images/medium_271870440.jpg"
 ---
 
-伊藤直也さんのブログ（[開発メモ#5 : Amazon Linux で knife-solo を使って chef-solo 実行 - naoyaのはてなダイアリー](http://d.hatena.ne.jp/naoya/20130204/1359971408) ）でchef-soloが紹介され、Vagrantと一緒にちょっとしたビッグウェーブが巻き起こりました。  
+伊藤直也さんのブログ（[開発メモ#5 : Amazon Linux で knife-solo を使って chef-solo 実行 - naoyaのはてなダイアリー](http://d.hatena.ne.jp/naoya/20130204/1359971408) ）でchef-soloが紹介され、Vagrantと一緒にちょっとしたビッグウェーブが巻き起こりました。
 さらに昨日、[入門Chef Solo - Infrastructure as Code](http://tatsu-zine.com/books/chef-solo)が達人出版からも発売開始。本が出版される前に一度挫折したchef-soloですが、この本のお陰でchef-solo童貞を卒業することができました。
 
 ### 続編も書きましたので、よろしければこちらもどうぞ
 
 続編：[さくらVPSの初期設定をChef Soloでやってみた〜サードパーティcookbookの使い方〜 | tsuchikazu blog](https://tsuchikazu.net/vps_chef_solo/)
 
-なぜ挫折したかというと、Chefの[公式ドキュメント](http://www.opscode.com/chef/)が、量が多くてめちゃくちゃわかりにくいんです。naoyaさんのブログを見て、ちょっと試してみようかなという心はここで一度へし折られます。さらに、ネットで検索しても、ちゃんとまとまっているサイトがなく、情報がとても断片的。  
+なぜ挫折したかというと、Chefの[公式ドキュメント](http://www.opscode.com/chef/)が、量が多くてめちゃくちゃわかりにくいんです。naoyaさんのブログを見て、ちょっと試してみようかなという心はここで一度へし折られます。さらに、ネットで検索しても、ちゃんとまとまっているサイトがなく、情報がとても断片的。
 そこをカバーしているのが、[入門Chef Solo - Infrastructure as Code](http://tatsu-zine.com/books/chef-solo)です。網羅的でかつ、情報がChef Soloに限定されていて読みやすい本でした。Chef Soloを始める人の必読書です。
 
 ひと通り読み終わった後、社内でも勉強会が開かれ、こういう風に進めればよかったのか。という形が見えたので、そのやり方をまとめてみました。詳しくは本を読んだほうがいいです。社内の勉強会はこちら（[社内で Chef 勉強会をして色々教えてもらった - banyan.github.com](http://banyan.github.com/2013/03/21/1/)）
@@ -58,7 +58,7 @@ Chefをインストールすると、knifeっていうChefの便利コマンド�
 
 ## レポジトリを作ってみる
 
-では、早速Chefでリポジトリを作ってみましょう。リポジトリとはChefの実行に必要なファイルの一番大きな入れ物です。リポジトリにcookbookが入り、cookbookにrecipeが入る構成になります。  
+では、早速Chefでリポジトリを作ってみましょう。リポジトリとはChefの実行に必要なファイルの一番大きな入れ物です。リポジトリにcookbookが入り、cookbookにrecipeが入る構成になります。
 先ほどインストールした`knife-solo`のコマンド一発でひな形を作ることができます。
 
 ```
@@ -124,7 +124,7 @@ Chefをインストールすると、knifeっていうChefの便利コマンド�
  Installing ohai (1.1.8) from site: 'http://cookbooks.opscode.com/api/v1/cookbooks'
 ```
 
-BerksfileがBundlerでいうGemfileになっていて、そこに必要なcookbookを書いておきます。breaks installコマンドでインストールが始まります。ログを見ると依存するcookbookも一緒にダウンロードされているのがわかります。サードパーティのcookbookはcookbooksフォルダに置く慣習なので、pathでcookbooksを指定してます。  
+BerksfileがBundlerでいうGemfileになっていて、そこに必要なcookbookを書いておきます。breaks installコマンドでインストールが始まります。ログを見ると依存するcookbookも一緒にダウンロードされているのがわかります。サードパーティのcookbookはcookbooksフォルダに置く慣習なので、pathでcookbooksを指定してます。
 Berkshelfを使った場合、cookbookフォルダはrailsでいうvendor/bundleフォルダと同じ扱いなので、.gitignoreしておくといいそうです。
 
 ### 自分でcookbookを作ってみる
@@ -167,7 +167,7 @@ Berkshelfを使った場合、cookbookフォルダはrailsでいうvendor/bundle
 
 ## chef-soloを実行する
 
-いよいよchef-soloを実行して、サーバにレシピを適用させていきましょう。ここでは試しにEC2に対して実行してみます。VPSでもVagrantで作った仮想マシンでも、やり方は同じです。sshでログイン出来るようにしておいてください。  
+いよいよchef-soloを実行して、サーバにレシピを適用させていきましょう。ここでは試しにEC2に対して実行してみます。VPSでもVagrantで作った仮想マシンでも、やり方は同じです。sshでログイン出来るようにしておいてください。
 まずは、最初にインストールしたchef-soloの`knife solo prepare`を使って、サーバにchefをインストールします。これは最初に1回だけやればOKです。
 
 ```
@@ -192,8 +192,8 @@ Berkshelfを使った場合、cookbookフォルダはrailsでいうvendor/bundle
   # 実行したいcookbookを指定する。
   {
     "run_list":[
-      "yum::epel", 
-      "nginx", 
+      "yum::epel",
+      "nginx",
       "base"
     ]
   }
@@ -219,7 +219,7 @@ nginxが起動されたか、見てみましょう。
 
 ### サードパーティのcookbookを使うべきか
 
-社内ではPuppetの方がよく使われていてPuppetマスターの人にそのへんの話を聞くと、そもそもサービスごとに求めているものが違うから、共通化出来るものではないんじゃないか。出来たとしても、提供されているものには品質にバラつきがあるし、カスタマイズしようとすると結構大変。それにどこまで設定されているかわからないものをそのまま使う気にはならない。参考にするのは全然ありだけど、結局0から自分で作るのが1番。とのこと。  
+社内ではPuppetの方がよく使われていてPuppetマスターの人にそのへんの話を聞くと、そもそもサービスごとに求めているものが違うから、共通化出来るものではないんじゃないか。出来たとしても、提供されているものには品質にバラつきがあるし、カスタマイズしようとすると結構大変。それにどこまで設定されているかわからないものをそのまま使う気にはならない。参考にするのは全然ありだけど、結局0から自分で作るのが1番。とのこと。
 PuppetとChefの違いはあるけど、できる事はそんなに変わないので、Chefでもそんな感じになるんでしょうか。
 
 ### サードパーティのcookbookを変更したい場合は？

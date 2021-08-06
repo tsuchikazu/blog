@@ -1,14 +1,14 @@
 ---
 title: "Macにnvm + Node.jsで環境構築"
 date: "2013-08-26"
-categories: 
+categories:
   - "node-js"
   - "開発環境"
-tags: 
+tags:
   - "js"
   - "node"
   - "nvm"
-coverImage: "medium_7373029404.jpg"
+coverImage: "images/medium_7373029404.jpg"
 ---
 
 この間、LLまつりに参加してみて、JSがとても奥深そうで一番興味が惹かれました。 Node.jsは、これまで一度も触ったことがなかったので、とりあえず、はじめてのNode.jsを読みながら、色々試してみようかと思います。
@@ -28,7 +28,7 @@ coverImage: "medium_7373029404.jpg"
 いくつかのバージョン管理が存在しますが、star数が(2013/08/27現在）一番多い[creationix/nvm](https://github.com/creationix/nvm)がオススメです。rubyでいうrvmでお馴染みの方も多いでしょう。githubに記載されている手順でインストールしていきます。
 
 1. install scriptの実行
-    
+
     ```
       $ curl https://raw.github.com/creationix/nvm/master/install.sh | sh
         % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -40,32 +40,32 @@ coverImage: "medium_7373029404.jpg"
       remote: Total 723 (delta 352), reused 574 (delta 224)
       Receiving objects: 100% (723/723), 110.21 KiB | 69 KiB/s, done.
       Resolving deltas: 100% (352/352), done.
-    
+
       => Appending source string to /Users/tsuchikazu/.bash_profile
       => Close and reopen your terminal to start using NVM
     ```
-    
+
     これで`~/.nvm/`にcloneされて、`~/.bash_profile`に設定が追加されたようです。自分の環境はzshなので、`~/.zshrc`にも追加しておきます。
-    
+
     ```
       $ echo "[[ -s /Users/tsuchikazu/.nvm/nvm.sh ]] && . /Users/tsuchikazu/.nvm/nvm.sh # This loads NVM" >> ~/.zshrc
     ```
-    
+
 2. shellの再起動
-    
+
     ```
       $ exec $SHELL -l
     ```
-    
+
     shellのファイル内容を反映させます。すると`nvm`コマンドが使用可能になります
-    
+
 3. nvmコマンドの使い方
-    
+
     ```
       $ nvm
-    
+
       Node Version Manager
-    
+
       Usage:
           nvm help                    Show this message
           nvm install [-s] <version>  Download and install a <version>
@@ -80,18 +80,18 @@ coverImage: "medium_7373029404.jpg"
           nvm alias <name> <version>  Set an alias named <name> pointing to <version>
           nvm unalias <name>          Deletes the alias named <name>
           nvm copy-packages <version> Install global NPM packages contained in <version> to current version
-    
+
       Example:
           nvm install v0.4.12         Install a specific version number
           nvm use 0.2                 Use the latest available 0.2.x release
           nvm run 0.4.12 myApp.js     Run myApp.js using node v0.4.12
           nvm alias default 0.4       Auto use the latest installed v0.4.x versionu
     ```
-    
+
     今どきのコマンドは適当にコマンド打つだけで、使い方がわかって便利ですね
-    
+
 4. 最新バージョンの確認
-    
+
     ```
       $ nvm ls-remote
       ...省略
@@ -106,11 +106,11 @@ coverImage: "medium_7373029404.jpg"
       v0.11.5
       v0.11.6
     ```
-    
+
     基本的に一つ前のマイナーバージョンが安定版、一番新しいバージョンが開発版のようです。今回は安定版をインストールします。
-    
+
 5. node安定版のインストール
-    
+
     ```
       $ nvm install v0.10.17
       ######################################################################## 100.0%
@@ -118,26 +118,26 @@ coverImage: "medium_7373029404.jpg"
       $ node -v
       v0.10.171
     ```
-    
+
     簡単にインストール出来ましたね。
-    
+
 
 ### 始めの一歩。Hello Worldを表示しよう
 
 1. 実行ファイルの用意
-    
+
     ```
       console.log("Hello World!");
     ```
-    
+
     この内容でhello.jsという名前で保存しておきましょう
-    
+
 2. 実行
-    
+
     ```
      $ node hello.js
      Hello World!
     ```
-    
+
 
 いかがだったでしょうか？パッケージ管理を使うと簡単にNode.jsをインストール出来ました。さらに、バージョンアップの際も簡単に最新版に切り替えられます。それでは、快適ななNode.jsライフを！

@@ -1,15 +1,15 @@
 ---
 title: "Javaの人間がRubyの世界に入って一番感じる1つの違い"
 date: "2012-11-13"
-categories: 
+categories:
   - "ruby"
-tags: 
+tags:
   - "java"
   - "ruby"
-coverImage: "large_3184149164.jpg"
+coverImage: "images/large_3184149164.jpg"
 ---
 
-自分は大学時代の4年間+SIer時代の5年間、Javaのみを書いてきました。  
+自分は大学時代の4年間+SIer時代の5年間、Javaのみを書いてきました。
 ここでいうJavaを書いてきたというのは、J2EEの世界でStrutsとかHibernateとかSeasar2とかSpringとかのFWを使って、業務系Webアプリの開発をしてきたということ。
 
 そして今年転職して、Rubyの会社になりたい会社（つまりPHPも結構やってる）[ペパボ](http://www.paperboy.co.jp/)に入りました。そこで感じているJavaの世界とRubyの世界の違いについて書いていきます。とは言っても、Rubyの世界の入り口からちょっと覗き見したぐらいの立ち位置ですが。

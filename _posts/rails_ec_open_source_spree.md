@@ -1,15 +1,15 @@
 ---
 title: "Rails製のECサイトを無料で作るオープンソースSpreeとは"
 date: "2013-01-30"
-categories: 
+categories:
   - "ruby"
-tags: 
+tags:
   - "ec"
   - "spree"
-coverImage: "The-World_s-Most-Flexible-E-Commerce-Platform-Spree-Commerce.jpg"
+coverImage: "images/The-World_s-Most-Flexible-E-Commerce-Platform-Spree-Commerce.jpg"
 ---
 
-自社のECサイトを持ちたいと思った場合、ショッピングカートのサービスを利用するか、オープンソースを使ってサイトを構築するか、選択肢は様々です。  
+自社のECサイトを持ちたいと思った場合、ショッピングカートのサービスを利用するか、オープンソースを使ってサイトを構築するか、選択肢は様々です。
 高いカスタマイズ性を求めると、オープンソースを使ったサイト構築は有力な選択肢となります。
 
 今、「EC オープンソース」でググると、以下のサイトがヒットしました。

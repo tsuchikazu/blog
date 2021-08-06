@@ -1,15 +1,15 @@
 ---
 title: "身内での勉強会で最近のインフラ事情を発表してきた"
 date: "2013-11-17"
-categories: 
+categories:
   - "life"
-tags: 
+tags:
   - "aws"
   - "chef"
   - "docker"
   - "puppet"
   - "serf"
-coverImage: "medium_7199215896.jpg"
+coverImage: "images/medium_7199215896.jpg"
 ---
 
 先日、大学時代の友人達と一緒に開催している勉強会で「最近のインフラ事情」という題で発表してきました。

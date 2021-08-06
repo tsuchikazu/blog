@@ -1,16 +1,16 @@
 ---
 title: "Swiftの名前空間とは"
 date: "2014-09-25"
-categories: 
+categories:
   - "ios"
-tags: 
+tags:
   - "swift"
-coverImage: "library.jpg"
+coverImage: "images/library.jpg"
 ---
 
-今月の13、14日にペパボのお産合宿で[音楽位置情報アプリ「Limu」](http://limu.xyz/)を開発しました。というか、まだ完成していないので開発しています。  
-iPhoneアプリの本格的な開発は今回が初めてでわからないことばかりでしたが、[@nakajijapan](https://twitter.com/nakajijapan)に色々教えてもらって、アプリの作り方がわかってきた今日このごろです。  
-LimuはSwiftで開発しており、その中で作った一部をライブラリに切り出したりしてるうちに([tsuchikazu/iTunesSwift](https://github.com/tsuchikazu/iTunesSwift))、  
+今月の13、14日にペパボのお産合宿で[音楽位置情報アプリ「Limu」](http://limu.xyz/)を開発しました。というか、まだ完成していないので開発しています。
+iPhoneアプリの本格的な開発は今回が初めてでわからないことばかりでしたが、[@nakajijapan](https://twitter.com/nakajijapan)に色々教えてもらって、アプリの作り方がわかってきた今日このごろです。
+LimuはSwiftで開発しており、その中で作った一部をライブラリに切り出したりしてるうちに([tsuchikazu/iTunesSwift](https://github.com/tsuchikazu/iTunesSwift))、
 Swiftの暗黙的な名前空間(namespace)ってこういうことだったのか、と実感できたのでそれをまとめました。
 
 ## 名前空間とは
@@ -19,8 +19,8 @@ Swiftの暗黙的な名前空間(namespace)ってこういうことだったの�
 
 > 名前空間はソースコード上で冗長な命名規則を用いなくても名前の衝突が起こらないようにし、しかもそれを容易に記述できるようにするためだけの概念
 
-のことを指しています。特にクラス名の衝突について触れていきます。  
-Objective-C時代は、この名前空間が存在しないためライブラリを作るときも[AFNetworking](https://github.com/AFNetworking/AFNetworking)のAFみたいな感じで、  
+のことを指しています。特にクラス名の衝突について触れていきます。
+Objective-C時代は、この名前空間が存在しないためライブラリを作るときも[AFNetworking](https://github.com/AFNetworking/AFNetworking)のAFみたいな感じで、
 変なprefixをつけるしかありませんでした。これは、外部ライブラリとそれを使うアプリ側やライブラリ間でクラス名などが衝突しないようにするためです。
 
 Appleの人曰く、Swiftではこれが解決されており、prefixを付ける必要はないとのことです。
@@ -35,10 +35,10 @@ Appleの人曰く、Swiftではこれが解決されており、prefixを付け�
 
 ### ライブラリを作ってみる
 
-Swiftでライブラリを作るには、Projectの新規作成で`Cocoa Touch Framework`を選択します。  
+Swiftでライブラリを作るには、Projectの新規作成で`Cocoa Touch Framework`を選択します。
 ![Cocoa Touch Framework](images/339626751b501f32933255eb938914cd.png)
 
-Product Nameにはライブラリ名を入力します。LanguageはSwiftを選択してください。今回は`NamespaceSwift`で作成しました。  
+Product Nameにはライブラリ名を入力します。LanguageはSwiftを選択してください。今回は`NamespaceSwift`で作成しました。
 ![NamespaceSwift](images/da35c77e6914d0943a55b5e600e9bc35.png)
 
 新規で`Test.swift`ファイルを作り、Testクラスを定義してみます
@@ -58,21 +58,21 @@ public class Test {
 
 ![Test.swift](images/77a73261dac4fd6d376d477b9e8f6108.png)
 
-ライブラリとしてはこれだけで終わりで、一旦閉じておきます。  
+ライブラリとしてはこれだけで終わりで、一旦閉じておきます。
 次に、このライブラリを使うiPhoneアプリを作っていきます。
 
 ### ライブラリを使ってみる
 
-適当に`Single View Application`で作ります。  
+適当に`Single View Application`で作ります。
 ![SingleViewApplication](images/0f498dedbc88210f53c2dc9ad4233802.png)
 
-Product Nameは`NamespaceSwiftDemo`で作成しました。  
+Product Nameは`NamespaceSwiftDemo`で作成しました。
 ![NamespaceSwiftDemo](images/ca39f2773a8ad1787239bb56d08af2ab.png)
 
-このアプリで先ほどのライブラリを使うために、ライブラリのxcodeprojをドラッグ&ドロップで持っていきます。  
+このアプリで先ほどのライブラリを使うために、ライブラリのxcodeprojをドラッグ&ドロップで持っていきます。
 ![NamespaceSwiftDrag](images/6c414984e72426aec92529fd06e20a1a.png)
 
-すると NamespaceSwiftDemo > NamespaceSwiftDemo Target > General > Linked Frameworks and Librariesの「+」ボタンで、`NamespaceSwift.framework`が選択出来るようになります。  
+すると NamespaceSwiftDemo > NamespaceSwiftDemo Target > General > Linked Frameworks and Librariesの「+」ボタンで、`NamespaceSwift.framework`が選択出来るようになります。
 ![LibrarySelect](images/6b63a1a30427e9ec1355fbfa3a3f72ff.png)
 
 これで、ライブラリを使う準備が整いましたので、実際に使ってみます
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
 
 さて、ようやく本題に入ります。
 
-Swiftの名前空間は、JavaのパッケージやPHPのnamespaceのように明示的に指定する方法ではなく、暗黙的に定義されています。Pythonも同じような感じで、暗黙的に定義されるらしいです。  
+Swiftの名前空間は、JavaのパッケージやPHPのnamespaceのように明示的に指定する方法ではなく、暗黙的に定義されています。Pythonも同じような感じで、暗黙的に定義されるらしいです。
 名前空間は、Xcode targetごと（モジュールと呼ぶのが正しいのでしょうか）に定義されるというか、モジュール名がそのまま名前空間になっています。 自分もモジュールとか理解が浅いのですが、簡単に言えばProjectを作成するときのProduct Nameが名前空間になります。
 
 つまり先程のTestクラスは、NamespaceSwiftプロジェクトのTestクラスなので、名前空間を指定してこう書くことができます。
@@ -111,7 +111,7 @@ Swiftの名前空間は、JavaのパッケージやPHPのnamespaceのように�
 NamespaceSwift.Test().hoge()
 ```
 
-一方、アプリ側(ライブラリを使っているNamespaceSwiftDemoプロジェクト)で、classを定義すると、NamespaceSwiftDemoが名前空間になります。  
+一方、アプリ側(ライブラリを使っているNamespaceSwiftDemoプロジェクト)で、classを定義すると、NamespaceSwiftDemoが名前空間になります。
 そのため、名前空間が別になるので、ライブラリと同じクラス名のTestクラスを作成することができます。
 
 ```
@@ -167,5 +167,5 @@ class NamespaceSwiftDemo {
 
 ## まとめ
 
-ということで、Swiftには暗黙的に名前空間が存在しており、知らずのうちにその中でclassを作っていたのでした。 これがあるお陰で、今後はライブラリに変なprefixをつける必要がなくなりました。 名前の衝突を気にせず、本来あるべき名前をつけていきましょう。 紹介したプログラムはGitHubにあげていますので、ぜひ試してみてください。[tsuchikazu/NamespaceSwiftDemo](https://github.com/tsuchikazu/NamespaceSwiftDemo)  
+ということで、Swiftには暗黙的に名前空間が存在しており、知らずのうちにその中でclassを作っていたのでした。 これがあるお陰で、今後はライブラリに変なprefixをつける必要がなくなりました。 名前の衝突を気にせず、本来あるべき名前をつけていきましょう。 紹介したプログラムはGitHubにあげていますので、ぜひ試してみてください。[tsuchikazu/NamespaceSwiftDemo](https://github.com/tsuchikazu/NamespaceSwiftDemo)
 （認識違いなどあると思いますので、詳しい人教えてください）

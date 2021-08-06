@@ -1,11 +1,11 @@
 ---
 title: "第1回ペパボテックカンファレンスでAngularJSの継続的なバージョンアップについて発表しました"
 date: "2015-04-25"
-categories: 
+categories:
   - "フロントエンド"
-tags: 
+tags:
   - "angularjs"
-coverImage: "22db2312e9c72eb86830ea2ca2c10f4c.png"
+coverImage: "images/22db2312e9c72eb86830ea2ca2c10f4c.png"
 ---
 
 4月19日(日)に[第1回ペパボテックカンファレンス](http://pepabo.connpass.com/event/13208/)が開催され、「AngularJSの継続的なバージョンアップ」というタイトルで発表しました。なんでこのイベントが開催されたか等は、antipopさんのエントリをどうぞ
@@ -30,8 +30,8 @@ Angular採用を決めた時期を思い返すと、去年の秋ぐらい？ち�
 
 ### 内容について
 
-大したことを言っていませんが、「次期バージョンを見据えた実装」のTipsに関しては、こうするのがいいんだろうなとボンヤリとは思っていましたが、ng-confでも同じような発表をしている人がいて([Angular 1 meets Angular 2](http://mzgol.github.io/slides/ng-1-meets-ng-2/#/))、やっぱりそうだよね。という気持ちを強くしました。  
-「テスト」に関しても、実際にやっていることではありますが、[AngularJS Japan User Group](https://angularjs-jp.doorkeeper.jp/)で開催されたいくつかのイベントで相談させてもらいました。ありがとうございました。  
+大したことを言っていませんが、「次期バージョンを見据えた実装」のTipsに関しては、こうするのがいいんだろうなとボンヤリとは思っていましたが、ng-confでも同じような発表をしている人がいて([Angular 1 meets Angular 2](http://mzgol.github.io/slides/ng-1-meets-ng-2/#/))、やっぱりそうだよね。という気持ちを強くしました。
+「テスト」に関しても、実際にやっていることではありますが、[AngularJS Japan User Group](https://angularjs-jp.doorkeeper.jp/)で開催されたいくつかのイベントで相談させてもらいました。ありがとうございました。
 もうすぐ[#GDGKobe Angular勉強会#3 on Zusaar](http://www.zusaar.com/event/6007003)も開催されます。特に[@armorik83](https://twitter.com/armorik83)さんのセッションは必見かと。それまで正座待機ですね。
 
 ### おわりに
