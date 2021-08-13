@@ -11,6 +11,8 @@ import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
 import markdownToHtml from '../lib/markdownToHtml'
 import PostType from '../types/post'
+import hljs from 'highlight.js';
+import { useEffect } from 'react'
 
 type Props = {
   post: PostType
@@ -23,6 +25,11 @@ const Post = ({ post, morePosts, preview }: Props) => {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
+
+  useEffect(() => {
+    hljs.initHighlighting();
+  }, []);
+
   return (
     <Layout preview={preview}>
       <Container>
