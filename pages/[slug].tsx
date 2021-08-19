@@ -8,7 +8,6 @@ import Layout from '../components/layout'
 import { getPostBySlug, getAllPosts } from '../lib/api'
 import PostTitle from '../components/post-title'
 import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
 import markdownToHtml from '../lib/markdownToHtml'
 import PostType from '../types/post'
 import hljs from 'highlight.js';
@@ -41,7 +40,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
             <article className="mb-32">
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {post.title} | tsuchikazu blog
                 </title>
                 {post.ogImage?.url &&
                   <meta property="og:image" content={post.ogImage.url} />
