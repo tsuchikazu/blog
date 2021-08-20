@@ -26,7 +26,7 @@ coverImage: "images/medium_7702900836.jpg"
 
 以下のようなコードを出力することで、Markdownで書いたソースコードソースがハイライトされます。
 
-```
+```html
 <!-- テーマは多く用意されているので、好きなテーマのcssを読み込みましょう -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/zenburn.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
@@ -41,7 +41,7 @@ coverImage: "images/medium_7702900836.jpg"
 
 まず、準備段階として`prettify`を適用するには、preタグまたはcodeタグのclassに`prettyprint`を指定しなければなりません。テーマを直接編集して、次のjavascriptを呼び出すようにしています。
 
-```
+```js
 jQuery(function() {
   jQuery("code").addClass("prettyprint");
 });

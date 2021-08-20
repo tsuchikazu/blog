@@ -64,7 +64,7 @@ Google Analytics API用のgemとして、「Garb」があります。RubyGemsに
 
     OAuthのやり方もありますが、ID/Passwordでのログインの方が簡単なのでそちらでやります。
 
-    ```
+    ```ruby
       Garb::Session.login(username,  password)
     ```
 
@@ -72,7 +72,7 @@ Google Analytics API用のgemとして、「Garb」があります。RubyGemsに
 
     1つのアカウントで複数のサイトを管理していることが多いので、トラッキングIDで調べたいサイトを絞り込みます。
 
-    ```
+    ```ruby
       profile = Garb::Management::Profile.all.detect do
         |p| p.web_property_id == 'UA-XXXXXXXX'
       end
@@ -86,7 +86,7 @@ Google Analytics API用のgemとして、「Garb」があります。RubyGemsに
 
     試しに、何日にアクセスが多いか調べてみます。指標には知りたい数値、ページビューを指定します。ディメンションには何を基準に解析結果をまとめるか、日付を指定します。
 
-    ```
+    ```rb
       class Pageviews
         extend Garb::Model
 
@@ -99,7 +99,7 @@ Google Analytics API用のgemとして、「Garb」があります。RubyGemsに
 
     指標とディメンションを指定したクラス名をprofileのメソッドとして、呼び出すことが出来ます。引数で結果をフィルタリングすることも出来ます。
 
-    ```
+    ```rb
       results = profile.pageviews(limit: 10, sort: :pageviews.desc)
       results.each do |result|
         p "pageviews:#{result.pageviews} date:#{result.date} title:#{result.page_title}"
@@ -108,7 +108,7 @@ Google Analytics API用のgemとして、「Garb」があります。RubyGemsに
 
     または、こんな呼び出し方も出来ます。
 
-    ```
+    ```rb
       results = Pageviews.results(profile, limit: 10, sort: :pageviews.desc)
       results.each do |result|
         p "pageviews:#{result.pageviews} date:#{result.date} title:#{result.page_title}"
@@ -118,7 +118,7 @@ Google Analytics API用のgemとして、「Garb」があります。RubyGemsに
 
 ### 最後にサンプルプログラム
 
-```
+```rb
  # -*- encoding: utf-8 -*-
  require "rubygems"
  require "garb"

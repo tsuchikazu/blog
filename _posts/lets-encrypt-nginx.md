@@ -1,9 +1,9 @@
 ---
 title: "Let's Encryptの証明書をnginxに設定してhttps化した"
 date: "2016-02-21"
-categories: 
+categories:
   - "life"
-tags: 
+tags:
   - "wordpress"
 ---
 
@@ -16,13 +16,13 @@ tags:
 CAが発行する証明書の種類として、以下の3つがあります。
 
 - DV (Domain Validation)
-    
+
     - ドメインの所有を確認して発行
 - OV (Organization Validation)
-    
+
     - 組織の実在の確認をして発行
 - EV (Extended Validation)
-    
+
     - より厳密な実在確認をして発行
 
 Let's Encryptが発行できる証明書は、DVの証明書のみです。これは、証明書を発行したい人が、本当にそのドメインの所有者かのみを確認して発行する証明書になります。この発行フローを、ACMEによって自動化できる。というのがLet's Encriptの大きな魅力です。
@@ -32,7 +32,7 @@ Let's Encryptが発行できる証明書は、DVの証明書のみです。こ�
 - CSRを生成
 - CSRをコピペして、申し込みフォームで申し込み
 - ドメイン所有者であることを証明する
-    
+
     - CAに指定されたコンテンツを、そのドメインで公開する
     - CAに指定された値を、DNSのTXTレコードに設定する
     - CAから送られてくる admin@mydomain.com 宛のメールのURLをクリックする
@@ -98,10 +98,10 @@ More detailed help:
 helpを見る限り、subcommandを指定しないと、defaultでcertonlyとinstallが実行されるようです。
 
 - certonly
-    
+
     - ドメインの確認、証明書の取得まで
 - install
-    
+
     - apacheやnginxの設定ファイルを書き換えて、sslを有効にする
 
 install については ACME をざっと見ても、書かれていないので、letsencriptの独自の機能かもしれません。今のところdebianベースのapacheにのみ対応していて、将来的には[nginxも対応していく](http://letsencrypt.readthedocs.org/en/latest/using.html#nginx)ようです。
@@ -160,7 +160,7 @@ $ sudo tree /etc/letsencrypt/
 
 nginxの設定を変更してSSLを有効にしましょう。設定ファイルはこんな感じになります。
 
-```
+```nginx
 # httpはhttpsへリダイレクト
 server {
   listen 80;
@@ -245,6 +245,8 @@ server {
 
 無料でhttps化。便利な時代になりました。ACMEが色々なCAでサポートされれば、証明書の管理が今後簡単になっていきそうな気がします。(https化されると、はてブなどのカウントが引き継がれないんですね…これ悲しいので、はてなやfacebook側で対応していただけるとうれしいです)
 
-参考記事 \* [Let's Encrypt を支える ACME プロトコル - Block Rockin’ Codes](http://jxck.hatenablog.com/entry/letsencrypt-acme) \* [光の速さのWEBサーバー(nginx)をlet's encryptでSSL化及びHTTP/2化。ついでにセキュリティ評価をA＋にする。 - Qiita](http://qiita.com/sak_2/items/ff835b669c0a7e110b09)
+参考記事
+* [Let's Encrypt を支える ACME プロトコル - Block Rockin’ Codes](http://jxck.hatenablog.com/entry/letsencrypt-acme)
+* [光の速さのWEBサーバー(nginx)をlet's encryptでSSL化及びHTTP/2化。ついでにセキュリティ評価をA＋にする。 - Qiita](http://qiita.com/sak_2/items/ff835b669c0a7e110b09)
 
 \[amazonjs asin="4774178667" locale="JP" title="nginx実践入門 (WEB+DB PRESS plus)"\]

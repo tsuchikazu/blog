@@ -25,19 +25,19 @@ Railsで使われている O/Rマッピングのライブラリ「ActiveRecord�
 
 1. ActiveRecordをインストール
 
-    ```
+    ```sh
     $ gem install activerecord
     ```
 
 2. MySQLに接続するためのアダプタインストール
 
-    ```
+    ```sh
     $ gem install mysql2
     ```
 
     下のようなエラーが出る場合、
 
-    ```
+    ```sh
     Building native extensions.  This could take a while...
     ERROR:  Error installing mysql2:
         ERROR: Failed to build gem native extension.
@@ -51,7 +51,7 @@ Railsで使われている O/Rマッピングのライブラリ「ActiveRecord�
 
     MySQL開発用のライブラリである、mysql-develをインストールしなければなりません。
 
-    ```
+    ```sh
     $ sudo yum info mysql-devel
     ```
 
@@ -59,7 +59,7 @@ Railsで使われている O/Rマッピングのライブラリ「ActiveRecord�
 
     main.rb
 
-    ```
+    ```rb
     # -*- encoding: utf-8 -*-
     require "rubygems"
     require "active_record"
@@ -87,7 +87,7 @@ Railsで使われている O/Rマッピングのライブラリ「ActiveRecord�
 
     database.yml
 
-    ```
+    ```yml
     db:
       production:
         adapter:  mysql2
@@ -107,7 +107,7 @@ Railsで使われている O/Rマッピングのライブラリ「ActiveRecord�
 
     修正したmain.rb
 
-    ```
+    ```rb
     # -*- encoding: utf-8 -*-
     require "rubygems"
     require "active_record"
@@ -128,7 +128,7 @@ Railsで使われている O/Rマッピングのライブラリ「ActiveRecord�
 
     `config["db"]["development"]`の部分は、Railsと同様に管理するなら環境変数に入れて
 
-    ```
+    ```rb
     config["db"][ENV["RAILS_ENV"]]
     ```
 

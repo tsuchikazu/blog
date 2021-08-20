@@ -50,7 +50,7 @@ $ vue init webpack vue-reg-suit-demo
 $ npm install --D vue-test-utils@latest
 ```
 
-```
+```diff
 diff --git a/test/unit/specs/HelloWorld.spec.js b/test/unit/specs/HelloWorld.spec.js
 index 9021581..8a68f60 100644
 --- a/test/unit/specs/HelloWorld.spec.js
@@ -84,7 +84,7 @@ mountの処理がシンプルに書けるし、`attachToDocument` オプショ�
 $ npm i -D karma-nightmare
 ```
 
-```
+```diff
 diff --git a/test/unit/karma.conf.js b/test/unit/karma.conf.js
 index 8e4951c..1798520 100644
 --- a/test/unit/karma.conf.js
@@ -208,7 +208,7 @@ reg-suit run を実行することで、以下が行われています。
 
 branchを作って、cssの変更をして、unit testを実行し、コミットします。今回は一部太字に変更しました。
 
-```
+```diff
 $ git checkout -b feature
 
 diff --git a/src/components/HelloWorld.vue b/src/components/HelloWorld.vue

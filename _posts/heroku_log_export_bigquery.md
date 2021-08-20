@@ -37,7 +37,7 @@ Cloud Loggingでのデータの保持期間は、デフォルトで30日です�
 
 stackdriver gemで作成したログは、
 
-```
+```rb
 log_name="projects/#{project_id}/logs/#{log_name}"
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: "AngularJSの組み込みのservice($location等)をAngularへDIする方法"
 date: "2020-06-22"
-categories: 
+categories:
   - "angularjs"
   - "フロントエンド"
 ---
@@ -24,7 +24,7 @@ ngUpgradeを利用して、AngularJsとAngularのハイブリットのアプリ�
 
 サンプルとして書かれていたものは、組み込みのserviceではなく、自作のserviceの方法でした。
 
-```
+```js
 import { HeroesService } from './heroes.service';
 
 @NgModule({
@@ -40,7 +40,7 @@ import { HeroesService } from './heroes.service';
 
 DIするときは、普通に型でDI出来ます。
 
-```
+```js
   constructor(heroesService: HeroesService) {}
 ```
 
@@ -50,7 +50,7 @@ DIするときは、普通に型でDI出来ます。
 
 `$location` のようなAngularJSなどの組み込みのserviceをDIする例です。
 
-```
+```js
 @NgModule({
   providers: [
     {
@@ -64,7 +64,7 @@ DIするときは、普通に型でDI出来ます。
 
 DIするとき
 
-```
+```js
   constructor(@Inject('$location') $location) {}
 ```
 

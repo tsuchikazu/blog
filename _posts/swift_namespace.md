@@ -43,7 +43,7 @@ Product Nameにはライブラリ名を入力します。LanguageはSwiftを選�
 
 新規で`Test.swift`ファイルを作り、Testクラスを定義してみます
 
-```
+```swift
 import Foundation
 public class Test {
 
@@ -77,7 +77,7 @@ Product Nameは`NamespaceSwiftDemo`で作成しました。
 
 これで、ライブラリを使う準備が整いましたので、実際に使ってみます
 
-```
+```swift
 // importしてframeworkを使えるようにします
 import NamespaceSwift
 
@@ -106,7 +106,7 @@ Swiftの名前空間は、JavaのパッケージやPHPのnamespaceのように�
 
 つまり先程のTestクラスは、NamespaceSwiftプロジェクトのTestクラスなので、名前空間を指定してこう書くことができます。
 
-```
+```swift
 // ライブラリのTestクラス
 NamespaceSwift.Test().hoge()
 ```
@@ -114,7 +114,7 @@ NamespaceSwift.Test().hoge()
 一方、アプリ側(ライブラリを使っているNamespaceSwiftDemoプロジェクト)で、classを定義すると、NamespaceSwiftDemoが名前空間になります。
 そのため、名前空間が別になるので、ライブラリと同じクラス名のTestクラスを作成することができます。
 
-```
+```swift
 import Foundation
 public class Test {
 
@@ -131,7 +131,7 @@ public class Test {
 
 名前空間を指定することで、クラス名が衝突しても同時に使うことができるのです。
 
-```
+```swift
 // ライブラリのTestクラス
 NamespaceSwift.Test().hoge()
 
@@ -149,7 +149,7 @@ Test().fuga()
 
 個人的にものすごくハマったポイントがありました。 名前空間（モジュール名）と同じクラス名を定義すると、名前空間として解釈されずにクラスとして解釈されてしまうという点です。
 
-```
+```swift
 // 名前空間と同じクラス
 class NamespaceSwift {
 

@@ -21,7 +21,7 @@ coverImage: "images/1_8vntpfJ8_FQ1XkeMVggasQ.png"
 
 nuxtにはlayout機能が備わっているため、普通にページを表示するとlayoutファイルの内容と一緒にpage componentが表示されます。Storybookで単純にpage componentを表示したところで、Vue単体ではlayoutは認識しないため、page componentだけが表示されます。
 
-```
+```js
 import Top from '~/pages/top.vue'
 
 // Top componentしか表示されない
@@ -34,7 +34,7 @@ storiesOf('Top', module)
 
 layoutと一緒にpage componentを表示したい。というのがやりたいことです。
 
-```
+```html
 <template>
   <div>
     <my-header />
@@ -48,7 +48,7 @@ layoutファイルのサンプルはこのような形で、`<nuxt />` が、各
 
 laoutを親componentへ指定
 
-```
+```js
 import Layout from '~/layouts/default.vue'
 import Top from '~/pages/top.vue'
 
@@ -61,7 +61,7 @@ storiesOf('Top', module)
 
 `<nuxt />` で、`<slot />` の動きを、無理やり模倣
 
-```
+```js
 Vue.component('nuxt', {
   render() {
     // <nuxt> から見ると、$parent が layout ファイル。layoutに指定されているslot = page componentを表示するだけ
@@ -80,7 +80,7 @@ Vue.component('nuxt', {
 
 これも割と無理やりな方法なのですが、テスト対象のpage comnponentを継承し、`data` を上書きして表示することで、回避しています。
 
-```
+```js
 storiesOf('Top', module)
   .add('xxxxのとき', () => ({
     components: {

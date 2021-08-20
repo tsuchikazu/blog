@@ -1,7 +1,7 @@
 ---
 title: "PWA Night～PWA × EC～への参加から見えた これからのECトレンド"
 date: "2020-06-18"
-categories: 
+categories:
   - "フロントエンド"
 ---
 
@@ -10,11 +10,9 @@ categories:
 ## セッション内容
 
 - EC受託制作におけるPWAの立ち位置とこれから by 米本さん@TAM
-    
     - 資料見つからず
 - [Shopifyで実現するPWA EC by 岡村さん@Shopify](https://speakerdeck.com/benzookapi/shopifydeshi-xian-surupwa-ec)
 - Adobe Magento社製のEC PWA環境、PWA-Studioのこれから
-    
     - 資料見つからず
 - [ぼくのかんがえたさいきょうのPWAキャッシュ](https://speakerdeck.com/kaidouji85/bokufalsekangaetasaikiyoufalsepwakiyatusiyu)
 - [PWA + WebARをECサイトでも使ってみたい](https://www.slideshare.net/DaisukeYamashita4/pwawebarec)

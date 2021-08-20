@@ -38,7 +38,7 @@ coverImage: "images/AngularJS-medium.png"
 バリデーションするにはform要素で囲み、name属性を指定する必要があります。
 form要素もdirectiveになっており、ng-formを指定しても構いません。
 
-```
+```html
 <form name="userForm" novalidate>
 </form>
 ```
@@ -49,7 +49,7 @@ AngularJSのバリデーションが同時に実施されてしまうことを�
 バリデーションするinput要素も用意しましょう。name/ng-modelを指定する必要があります。
 ng-modelはデータバインディングだけでなく、バリデーションするためにも必要です。
 
-```
+```html
 <input type="email" name="email" ng-model="email">
 ```
 
@@ -59,7 +59,7 @@ AngularJSのバリデーションは、基本的にinputなど入力要素に属
 デフォルトでtextだとng-required(required), ng-pattern, ng-minlength, ng-maxlength等が使えます。
 [AngularJS: API: input\[text\]](https://docs.angularjs.org/api/ng/input/input%5Btext%5D)
 
-```
+```html
 <input type="email" name="email" ng-model="email" required ng-maxlength="20">
 ```
 
@@ -70,7 +70,7 @@ AngularJSのバリデーションは、基本的にinputなど入力要素に属
 
 どのバリデーションでエラーになったかを、`formのname属性.inputのname属性.$error`で、参照できます。
 
-```
+```js
 # エラー内容を出力
 {{ userForm.email.$error }}
 # 出力内容
@@ -79,14 +79,14 @@ AngularJSのバリデーションは、基本的にinputなど入力要素に属
 
 バリデーションの種類に合わせて、エラーメッセージを出力しましょう。
 
-```
+```html
 <span ng-show="userForm.email.$error.required">入力してください</span>
 <span ng-show="userForm.email.$error.maxlength">もっと短くして</span>
 ```
 
 複数のバリデーションをかけた場合、ng-showの条件が冗長になったり、エラーは最初の1つだけ表示したい場合、条件が複雑になってしまいます。 そのため、エラー表示にはngMessagesを使うと便利です([AngularJS: API: ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages))
 
-```
+```html
 <div ng-messages="userForm.email.$error" multiple>
   <div ng-message="required">入力してください</div>
   <div ng-message="maxlength">もっと短くして</div>
@@ -112,7 +112,7 @@ AngularJSでは、バリデーションするタイミングを変えるので�
 
 表示する or しないの制御には、ng-if or ng-showで制御します。
 
-```
+```html
 <div ng-messages="userForm.email.$error" ng-if="userForm.email.$touched && userForm.$submitted">
 ..
 </div>
@@ -133,7 +133,7 @@ AngularJSでは、バリデーションするタイミングを変えるので�
 | $valid | inputの値が正しい |
 | $invalid | inputの値が誤っている($validの逆) |
 
-```
+```html
 <div ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
 ..
 </div>
@@ -151,7 +151,7 @@ AngularJSでは、バリデーションするタイミングを変えるので�
 | $invalid | form内のinputにinvalidがある |
 | $submitted | formがsubmitされた |
 
-```
+```html
 <div ng-messages="userForm.email.$error" ng-if="userForm.$submitted">
 ..
 </div>

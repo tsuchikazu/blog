@@ -57,7 +57,7 @@ coverImage: "images/origin_3187666412.jpg"
 
 1. SSHでログイン
 
-    ```
+    ```sh
     ssh -i keyname.pem ec2-user@ec2-XXXXXXXXXXXXXXXXXX.ap-northeast-1.compute.amazonaws.com
     ```
 
@@ -65,13 +65,13 @@ coverImage: "images/origin_3187666412.jpg"
 
 2. まずはじめに、updateしなさいと言われるのでyum update
 
-    ```
+    ```sh
     $ sudo yum update
     ```
 
 3. すでにインストール済みのパッケージを確認しておきましょう
 
-    ```
+    ```sh
       $ yum list installed
     ```
 
@@ -80,13 +80,13 @@ coverImage: "images/origin_3187666412.jpg"
 
     1. インストール
 
-        ```
+        ```sh
            $ sudo yum install httpd
         ```
 
     2. 自動起動するようにしておく
 
-        ```
+        ```sh
            $ sudo chkconfig httpd on
         ```
 
@@ -94,13 +94,13 @@ coverImage: "images/origin_3187666412.jpg"
 
         一応バックアップとっておいて
 
-        ```
+        ```sh
            $ sudo cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.org
         ```
 
         必須であろう設定をしていきます
 
-        ```
+        ```sh
            $ sudo vim /etc/httpd/conf/httpd.conf
         ```
 
