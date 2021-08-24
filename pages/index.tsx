@@ -9,6 +9,7 @@ import Post from '../types/post'
 import { useRouter } from 'next/router'
 import PostPreview from 'components/post-preview'
 import Link from 'next/link'
+import stripMarkdown from 'lib/stripMarkdown'
 
 type Props = {
   allPosts: Post[]
@@ -40,7 +41,7 @@ const Index = ({ allPosts }: Props) => {
               coverImage={heroPost.coverImage}
               date={heroPost.date}
               slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
+              excerpt={heroPost.excerpt || heroPost.content.substring(0, 200)}
             />
           }
           <MoreStories posts={posts} />
@@ -58,13 +59,22 @@ const Index = ({ allPosts }: Props) => {
 export default Index
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'coverImage',
-    'excerpt',
-  ])
+  const allPosts = await Promise.all(
+    getAllPosts([
+      'title',
+      'date',
+      'slug',
+      'coverImage',
+      'excerpt',
+      'content',
+    ]).map(async post => {
+      const content = await stripMarkdown(post.content || '')
+      return {
+        ...post,
+        content
+      }
+    })
+  )
 
   return {
     props: { allPosts },
