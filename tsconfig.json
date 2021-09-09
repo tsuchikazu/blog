@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "target": "es5",
-    "module": "esnext",
+    "module": "commonjs",
     "jsx": "preserve",
     "strict": true,
     "esModuleInterop": true,

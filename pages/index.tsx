@@ -10,6 +10,7 @@ import { useRouter } from 'next/router'
 import PostPreview from 'components/post-preview'
 import Link from 'next/link'
 import stripMarkdown from 'lib/stripMarkdown'
+import { HOME_OG_IMAGE_URL } from '../lib/constants'
 
 type Props = {
   allPosts: Post[]
@@ -32,6 +33,7 @@ const Index = ({ allPosts }: Props) => {
       <Layout>
         <Head>
           <title>tsuchikazu blog</title>
+          <meta property="og:image" content={HOME_OG_IMAGE_URL} />
         </Head>
         <Container>
           <Intro />

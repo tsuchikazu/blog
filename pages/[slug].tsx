@@ -12,6 +12,7 @@ import markdownToHtml from '../lib/markdownToHtml'
 import PostType from '../types/post'
 import hljs from 'highlight.js';
 import { useEffect } from 'react'
+import { BASE_URL } from '../lib/constants'
 
 type Props = {
   post: PostType
@@ -42,9 +43,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
                 <title>
                   {post.title} | tsuchikazu blog
                 </title>
-                {post.ogImage?.url &&
-                  <meta property="og:image" content={post.ogImage.url} />
-                }
+                <meta property="og:image" content={`${BASE_URL}/og-images/${post.slug}.png`} />
               </Head>
               <PostHeader
                 title={post.title}
