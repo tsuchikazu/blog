@@ -22,6 +22,13 @@ export default class MyDocument extends Document {
           `,
             }}
           />
+
+          {/* Google Adsense */}
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7218976215807284"
+            crossOrigin="anonymous"
+          />
         </Head>
         <body>
           <Main />
