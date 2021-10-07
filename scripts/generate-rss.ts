@@ -21,7 +21,7 @@ async function main() {
       const content = await stripMarkdown(post.content || '')
       feed.item({
         title: post.title,
-        url: `/${post.slug}`,
+        url: `https://tsuchikazu.net/${post.slug}`,
         date: post.date,
         description: content.substring(0, 200),
         // @ts-ignore
